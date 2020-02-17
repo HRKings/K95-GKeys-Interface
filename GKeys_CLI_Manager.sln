@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GKeys_CLI_Manager", "GKeys_CLI_Manager\GKeys_CLI_Manager.vcxproj", "{20E1941B-71BB-4170-8485-1E6DB18331CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20E1941B-71BB-4170-8485-1E6DB18331CE}.Debug|x64.ActiveCfg = Debug|x64
+		{20E1941B-71BB-4170-8485-1E6DB18331CE}.Debug|x64.Build.0 = Debug|x64
+		{20E1941B-71BB-4170-8485-1E6DB18331CE}.Debug|x86.ActiveCfg = Debug|Win32
+		{20E1941B-71BB-4170-8485-1E6DB18331CE}.Debug|x86.Build.0 = Debug|Win32
+		{20E1941B-71BB-4170-8485-1E6DB18331CE}.Release|x64.ActiveCfg = Release|x64
+		{20E1941B-71BB-4170-8485-1E6DB18331CE}.Release|x64.Build.0 = Release|x64
+		{20E1941B-71BB-4170-8485-1E6DB18331CE}.Release|x86.ActiveCfg = Release|Win32
+		{20E1941B-71BB-4170-8485-1E6DB18331CE}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B66D5BC4-0B69-4F11-A963-8FF17D18382F}
+	EndGlobalSection
+EndGlobal
