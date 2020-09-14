@@ -23,7 +23,8 @@ void ProcessHID(hid_device* handle, int res) {
 
 			//std::cout << key_now << "\n";
 
-			for (int i = 16; i < 32; i++)
+			char i;
+			for (i = 16; i < 32; i++)
 				if ((key_now & (1 << i)) && !(key_last & (1 << i))) {
 					G_Pressed(key_now & (1 << i));
 				}
@@ -31,7 +32,7 @@ void ProcessHID(hid_device* handle, int res) {
 					G_Released(key_last & (1 << i));
 				}
 
-			for (int i = 8; i < 10; i++)
+			for (i = 8; i < 10; i++)
 				if ((key_now & (1 << i)) && !(key_last & (1 << i))) {
 					G_Pressed(key_now & (1 << i));
 				}
@@ -39,7 +40,7 @@ void ProcessHID(hid_device* handle, int res) {
 					G_Released(key_last & (1 << i));
 				}
 
-			for (int i = 0; i < 8; i++)
+			for (i = 0; i < 8; i++)
 				if ((key_now & (1 << i)) && !(key_last & (1 << i))) {
 					G_Pressed(key_now & (1 << i));
 				}
