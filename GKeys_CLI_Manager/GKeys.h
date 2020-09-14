@@ -29,5 +29,7 @@
 extern  std::unordered_map<std::uint32_t, int> GKeys_Map;
 extern  std::unordered_map<std::uint32_t, std::string> GKeys_Names_Map;
 
+extern bool IsFunctionMode;
+
 void G_Pressed(std::uint32_t key);
 void G_Released(std::uint32_t key);

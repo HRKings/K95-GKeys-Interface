@@ -25,6 +25,28 @@ std::unordered_map<std::uint32_t, int> GKeys_Map
 	{GKEY_G18, 0xD2}
 };
 
+std::unordered_map<std::uint32_t, int> GKeys_Function_Map
+{
+	{GKEY_G1, 0x76},
+	{GKEY_G2, 0x77},
+	{GKEY_G3, 0x78},
+	{GKEY_G4, 0x79},
+	{GKEY_G5, 0x7A},
+	{GKEY_G6, 0x7B},
+	{GKEY_G7, 0x7C},
+	{GKEY_G8, 0x7D},
+	{GKEY_G9, 0x7E},
+	{GKEY_G10, 0x7F},
+	{GKEY_G11, 0x80},
+	{GKEY_G12, 0x81},
+	{GKEY_G13, 0x82},
+	{GKEY_G14, 0x83},
+	{GKEY_G15, 0x84},
+	{GKEY_G16, 0x85},
+	{GKEY_G17, 0x86},
+	{GKEY_G18, 0x87}
+};
+
 std::unordered_map<std::uint32_t, std::string> GKeys_Names_Map
 {
 	{GKEY_G1, "G1"},
@@ -47,6 +69,8 @@ std::unordered_map<std::uint32_t, std::string> GKeys_Names_Map
 	{GKEY_G18, "G18"}
 };
 
+bool IsFunctionMode = false;
+
 void G_Pressed(std::uint32_t key) {
 	if (IsConsoleVisible())
 		std::cout << GKeys_Names_Map[key] << " Pressed\n";
@@ -62,8 +86,24 @@ void G_Pressed(std::uint32_t key) {
 			ShowConsole();
 		}
 	}
+	else if (key == GKEY_G2 && GetKeyState(VK_SHIFT) & 0x8000 && GetKeyState(VK_CONTROL) & 0x8000) {
+		IsFunctionMode = !IsFunctionMode;
+
+		if (IsConsoleVisible())
+			std::cout << "Toggled Function Mode, now:" << IsFunctionMode << "\n";
+	}
 	else {
-		keybd_event(0xFF, GKeys_Map[key], 0, 0);
+		if (IsFunctionMode) {
+			keybd_event(VK_LCONTROL, 0, KEYEVENTF_EXTENDEDKEY, 0);
+			keybd_event(VK_LSHIFT, 0, KEYEVENTF_EXTENDEDKEY, 0);
+			keybd_event(GKeys_Function_Map[key], 0, KEYEVENTF_EXTENDEDKEY, 0);
+			keybd_event(GKeys_Function_Map[key], 0, KEYEVENTF_KEYUP, 0);
+			keybd_event(VK_LCONTROL, 0, KEYEVENTF_KEYUP, 0);
+			keybd_event(VK_LSHIFT, 0, KEYEVENTF_KEYUP, 0);
+		}
+		else {
+			keybd_event(0xFF, GKeys_Map[key], 0, 0);
+		}
 	}
 }
 void G_Released(std::uint32_t key) {
